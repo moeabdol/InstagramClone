@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Container } from './App.styles';
+import { Text } from 'react-native';
 
 function App() {
 	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Helloooooo</Text>
-		</View>
+		<Container>
+			<Text>Hello, World!</Text>
+		</Container>
 	);
 }
 
