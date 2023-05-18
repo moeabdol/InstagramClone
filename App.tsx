@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container } from './App.styles';
-import { Text } from 'react-native';
+import { Container, Text } from './App.styles';
 
 function App() {
 	return (
