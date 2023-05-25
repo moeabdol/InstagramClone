@@ -1,14 +1,11 @@
 import * as React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
-import FeedPost from './src/components/FeedPost';
-import post from './src/data/post';
+import { SafeAreaView } from 'react-native';
+import Home from './src/screens/Home';
 
 function App() {
 	return (
 		<SafeAreaView>
-			<ScrollView>
-				<FeedPost post={post} />
-			</ScrollView>
+			<Home />
 		</SafeAreaView>
 	);
 }
