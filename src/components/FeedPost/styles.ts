@@ -119,29 +119,6 @@ export const ViewCommentsText = styled.Text`
 	line-height: 18px;
 `;
 
-export const CommentsContainer = styled.View`
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	width: 100%;
-`;
-
-export const Comment = styled.Text`
-	color: ${Colors.black};
-	font-size: ${Sizes.default};
-	font-weight: ${Weights.default};
-	line-height: 18px;
-	flex: 1;
-`;
-
-export const CommentLikeIcon = styled(AntDesign)`
-	font-size: ${Sizes.small};
-	margin-right: 10px;
-	color: ${Colors.black};
-	margin: 0 10px;
-`;
-
 export const PublishDateText = styled.Text`
 	width: 100%;
 	line-height: 18px;

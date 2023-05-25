@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
 	Container,
 	HeaderContainer,
@@ -17,31 +17,25 @@ import {
 	PostDescription,
 	UsernameText,
 	ViewCommentsText,
-	CommentsContainer,
-	Comment,
-	CommentLikeIcon,
 	PublishDateText,
 } from './styles';
+import type IPost from '../../models/Post';
+import Comment from '../Comment';
 
-function FeedPost() {
+type FeedPostProps = {
+	post: IPost;
+};
+
+function FeedPost({ post }: FeedPostProps) {
 	return (
 		<Container>
 			<HeaderContainer>
-				<HeaderAvatar
-					source={{
-						uri: 'https://i.pinimg.com/originals/9c/e2/03/9ce2033132083598eee5c59e58571f82.jpg',
-					}}
-				/>
-				<HeaderUsername>moeabdol</HeaderUsername>
+				<HeaderAvatar source={{ uri: post.user.image }} />
+				<HeaderUsername>{post.user.username}</HeaderUsername>
 				<HeaderIcon name="dots-three-horizontal" />
 			</HeaderContainer>
 
-			<PostImage
-				source={{
-					uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
-				}}
-			/>
-
+			<PostImage source={{ uri: post.image }} />
 			<FooterContainer>
 				<FooterIconContainer>
 					<LikeIcon name="hearto" />
@@ -52,28 +46,22 @@ function FeedPost() {
 
 				<LikedByText>
 					Like by <BoldText>moeabdol</BoldText> and{' '}
-					<BoldText>99 others</BoldText>
+					<BoldText>{post.nofLikes} others</BoldText>
 				</LikedByText>
 
 				<PostDescription>
-					<UsernameText>moeabdol</UsernameText> Lorem ipsum dolor sit amet,
-					consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-					labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-					et accusam et justo duo dolores et ea rebum. Stet clita kasd
-					gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+					<UsernameText>{post.user.username}</UsernameText> {post.description}
 				</PostDescription>
 
-				<ViewCommentsText>View all 16 comments</ViewCommentsText>
+				<ViewCommentsText>
+					View all {post.nofComments} comments
+				</ViewCommentsText>
 
-				<CommentsContainer>
-					<Comment>
-						<UsernameText>moeabdol</UsernameText> Lorem ipsum dolor sit amet,
-						nonumy eirmod tempor Lorem ipsum dolor sit amet.
-					</Comment>
-					<CommentLikeIcon name="hearto" size={10} />
-				</CommentsContainer>
+				{post.comments.map(comment => (
+					<Comment key={comment.id} comment={comment} />
+				))}
 
-				<PublishDateText>18 May, 2023</PublishDateText>
+				<PublishDateText>{post.createdAt}</PublishDateText>
 			</FooterContainer>
 		</Container>
 	);
