@@ -23,6 +23,7 @@ import {
 	CarouselContainer,
 	DotIndicatorContainer,
 	Dot,
+	VideoPlayer,
 } from './styles';
 import type IPost from '../../models/Post';
 import Comment from '../Comment';
@@ -38,6 +39,7 @@ function FeedPost({ post }: FeedPostProps) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isLiked, setIsLiked] = useState(false);
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [isMuted, setIsMuted] = useState(true);
 
 	const viewabilityConfig = {
 		itemVisiblePercentThreshold: 51,
@@ -82,6 +84,16 @@ function FeedPost({ post }: FeedPostProps) {
 						))}
 					</DotIndicatorContainer>
 				</CarouselContainer>
+			)}
+
+			{post.video && (
+				<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
+					<VideoPlayer
+						source={{ uri: post.video }}
+						resizeMode="cover"
+						muted={isMuted}
+					/>
+				</DoublePressable>
 			)}
 
 			<FooterContainer>

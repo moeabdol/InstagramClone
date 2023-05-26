@@ -75,7 +75,8 @@ const posts: IPost[] = [
 	{
 		id: 2,
 		createdAt: '19 December 2021',
-		image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg',
+		video:
+			'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
 		description:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?',
 		user: {

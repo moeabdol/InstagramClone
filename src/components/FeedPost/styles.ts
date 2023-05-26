@@ -5,6 +5,7 @@ import Colors from '../../theme/Colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
+import Video from 'react-native-video';
 
 export const Container = styled.View`
 	display: flex;
@@ -165,4 +166,9 @@ export const Dot = styled.View<DotProps>`
 	margin-bottom: 10px;
 	margin-right: 5px;
 	background-color: ${props => (props.active ? Colors.primary : Colors.white)};
+`;
+
+export const VideoPlayer = styled(Video)`
+	width: 100%;
+	aspect-ratio: 1;
 `;
