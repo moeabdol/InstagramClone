@@ -138,3 +138,31 @@ export const PublishDateText = styled.Text`
 	width: 100%;
 	line-height: 18px;
 `;
+
+export const CarouselContainer = styled.View`
+	position: relative;
+	flex: 1;
+	width: 100%;
+`;
+
+export const DotIndicatorContainer = styled.View`
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+`;
+
+type DotProps = {
+	active: boolean;
+};
+
+export const Dot = styled.View<DotProps>`
+	width: 10px;
+	aspect-ratio: 1;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	background-color: ${props => (props.active ? Colors.primary : Colors.white)};
+`;

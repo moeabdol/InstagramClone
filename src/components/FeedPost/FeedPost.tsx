@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
 	Container,
 	HeaderContainer,
@@ -20,6 +20,9 @@ import {
 	UsernameText,
 	ViewCommentsText,
 	PublishDateText,
+	CarouselContainer,
+	DotIndicatorContainer,
+	Dot,
 } from './styles';
 import type IPost from '../../models/Post';
 import Comment from '../Comment';
@@ -34,6 +37,15 @@ function FeedPost({ post }: FeedPostProps) {
 	const { width } = useWindowDimensions();
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isLiked, setIsLiked] = useState(false);
+	const [activeIndex, setActiveIndex] = useState(0);
+
+	const viewabilityConfig = {
+		itemVisiblePercentThreshold: 51,
+	};
+
+	const onViewableItemsChanged = useRef(({ viewableItems }) => {
+		if (viewableItems.length > 0) setActiveIndex(viewableItems[0].index);
+	});
 
 	return (
 		<Container>
@@ -50,16 +62,26 @@ function FeedPost({ post }: FeedPostProps) {
 			)}
 
 			{post.images && (
-				<FlatList
-					horizontal
-					pagingEnabled
-					data={post.images}
-					renderItem={({ item }) => (
-						<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
-							<PostImage source={{ uri: item }} width={width} />
-						</DoublePressable>
-					)}
-				/>
+				<CarouselContainer>
+					<FlatList
+						horizontal
+						pagingEnabled
+						showsHorizontalScrollIndicator={false}
+						data={post.images}
+						renderItem={({ item }) => (
+							<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
+								<PostImage source={{ uri: item }} width={width} />
+							</DoublePressable>
+						)}
+						viewabilityConfig={viewabilityConfig}
+						onViewableItemsChanged={onViewableItemsChanged.current}
+					/>
+					<DotIndicatorContainer>
+						{post.images.map((_, i) => (
+							<Dot key={i} active={i === activeIndex ? true : false} />
+						))}
+					</DotIndicatorContainer>
+				</CarouselContainer>
 			)}
 
 			<FooterContainer>

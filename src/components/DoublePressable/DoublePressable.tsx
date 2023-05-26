@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ReactNode } from 'react';
-import { Pressable } from './styles';
+import { Pressable } from 'react-native';
 
 type DoublePressableProps = {
 	children: ReactNode;
