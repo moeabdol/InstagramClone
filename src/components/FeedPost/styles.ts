@@ -41,8 +41,12 @@ export const HeaderIcon = styled(Entypo)`
 	font-size: ${Sizes.medium};
 `;
 
-export const PostImage = styled.Image`
-	width: 100%;
+type PostImageProps = {
+	width?: number;
+};
+
+export const PostImage = styled.Image<PostImageProps>`
+	width: ${props => (props.width ? `${props.width}px` : '100%')};
 	aspect-ratio: 1;
 `;
 
