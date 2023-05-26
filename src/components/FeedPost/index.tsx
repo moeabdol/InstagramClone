@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import {
 	Container,
 	HeaderContainer,
@@ -14,19 +15,24 @@ import {
 	BookmarkIcon,
 	LikedByText,
 	BoldText,
-	PostDescription,
+	PostDescriptionText,
+	ShowMoreLessText,
 	UsernameText,
 	ViewCommentsText,
 	PublishDateText,
 } from './styles';
 import type IPost from '../../models/Post';
 import Comment from '../Comment';
+import DoublePressable from '../DoublePressable';
 
 type FeedPostProps = {
 	post: IPost;
 };
 
 function FeedPost({ post }: FeedPostProps) {
+	const [isExpanded, setIsExpanded] = useState(false);
+	const [isLiked, setIsLiked] = useState(false);
+
 	return (
 		<Container>
 			<HeaderContainer>
@@ -35,10 +41,17 @@ function FeedPost({ post }: FeedPostProps) {
 				<HeaderIcon name="dots-three-horizontal" />
 			</HeaderContainer>
 
-			<PostImage source={{ uri: post.image }} />
+			<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
+				<PostImage source={{ uri: post.image }} />
+			</DoublePressable>
+
 			<FooterContainer>
 				<FooterIconContainer>
-					<LikeIcon name="hearto" />
+					<LikeIcon
+						name={isLiked ? 'heart' : 'hearto'}
+						isLiked={isLiked}
+						onPress={() => setIsLiked(prev => !prev)}
+					/>
 					<ChatIcon name="chatbubble-outline" />
 					<SendIcon name="send" />
 					<BookmarkIcon name="bookmark" />
@@ -49,9 +62,13 @@ function FeedPost({ post }: FeedPostProps) {
 					<BoldText>{post.nofLikes} others</BoldText>
 				</LikedByText>
 
-				<PostDescription>
+				<PostDescriptionText numberOfLines={isExpanded ? 0 : 3}>
 					<UsernameText>{post.user.username}</UsernameText> {post.description}
-				</PostDescription>
+				</PostDescriptionText>
+
+				<ShowMoreLessText onPress={() => setIsExpanded(prev => !prev)}>
+					{isExpanded ? 'Show less' : 'Show more'}
+				</ShowMoreLessText>
 
 				<ViewCommentsText>
 					View all {post.nofComments} comments

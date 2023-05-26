@@ -63,10 +63,14 @@ export const FooterIconContainer = styled.View`
 	margin-bottom: 5px;
 `;
 
-export const LikeIcon = styled(AntDesign)`
+type LikeIconProps = {
+	isLiked: boolean;
+};
+
+export const LikeIcon = styled(AntDesign)<LikeIconProps>`
 	font-size: ${Sizes.extraLarge};
 	margin-right: 10px;
-	color: ${Colors.black};
+	color: ${props => (props.isLiked ? Colors.red : Colors.black)};
 `;
 
 export const ChatIcon = styled(Ionicons)`
@@ -100,11 +104,18 @@ export const BoldText = styled.Text`
 	line-height: 18px;
 `;
 
-export const PostDescription = styled.Text`
+export const PostDescriptionText = styled.Text`
 	color: ${Colors.black};
 	font-size: ${Sizes.default};
 	font-weight: ${Weights.default};
 	line-height: 18px;
+`;
+
+export const ShowMoreLessText = styled.Text`
+	font-size: ${Sizes.default};
+	font-weight: ${Weights.default};
+	line-height: 18px;
+	margin-bottom: 3px;
 `;
 
 export const UsernameText = styled.Text`
