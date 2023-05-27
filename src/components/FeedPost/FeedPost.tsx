@@ -23,7 +23,10 @@ import {
 	CarouselContainer,
 	DotIndicatorContainer,
 	Dot,
+	VideoContainer,
 	VideoPlayer,
+	MuteButton,
+	MuteIcon,
 } from './styles';
 import type IPost from '../../models/Post';
 import Comment from '../Comment';
@@ -87,13 +90,19 @@ function FeedPost({ post }: FeedPostProps) {
 			)}
 
 			{post.video && (
-				<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
-					<VideoPlayer
-						source={{ uri: post.video }}
-						resizeMode="cover"
-						muted={isMuted}
-					/>
-				</DoublePressable>
+				<VideoContainer>
+					<DoublePressable onDoublePress={() => setIsLiked(prev => !prev)}>
+						<VideoPlayer
+							source={{ uri: post.video }}
+							resizeMode="cover"
+							repeat
+							muted={isMuted}
+						/>
+					</DoublePressable>
+					<MuteButton onPress={() => setIsMuted(prev => !prev)}>
+						<MuteIcon name={isMuted ? 'volume-mute' : 'volume-medium'} />
+					</MuteButton>
+				</VideoContainer>
 			)}
 
 			<FooterContainer>

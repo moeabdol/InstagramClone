@@ -168,7 +168,30 @@ export const Dot = styled.View<DotProps>`
 	background-color: ${props => (props.active ? Colors.primary : Colors.white)};
 `;
 
+export const VideoContainer = styled.View`
+	position: relative;
+	flex: 1;
+	width: 100%;
+`;
+
 export const VideoPlayer = styled(Video)`
 	width: 100%;
 	aspect-ratio: 1;
+`;
+
+export const MuteButton = styled.Pressable`
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+`;
+
+export const MuteIcon = styled(Ionicons)`
+	font-size: ${Sizes.default};
+	color: ${Colors.white};
+	background-color: ${Colors.black};
+	border-radius: 15px;
+	padding: 5px;
 `;
