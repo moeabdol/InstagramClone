@@ -3,7 +3,7 @@ import Colors from '../../theme/Colors';
 import { Sizes, Weights } from '../../theme/FontSizes';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-export const Container = styled.View`
+export const ContainerView = styled.View`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -11,12 +11,26 @@ export const Container = styled.View`
 	width: 100%;
 `;
 
-export const CommentBody = styled.Text`
+export const AvatarImage = styled.Image`
+	width: 40px;
+	aspect-ratio: 1;
+	border-radius: 25px;
+	margin-right: 10px;
+`;
+
+export const TextView = styled.View`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex: 1;
+`;
+
+export const CommentText = styled.Text`
 	color: ${Colors.black};
 	font-size: ${Sizes.default};
 	font-weight: ${Weights.default};
 	line-height: 18px;
-	flex: 1;
 `;
 
 export const UsernameText = styled.Text`
@@ -26,9 +40,27 @@ export const UsernameText = styled.Text`
 	line-height: 18px;
 `;
 
-export const CommentLikeIcon = styled(AntDesign)`
-	font-size: ${Sizes.small};
+export const CommentActionsView = styled.View`
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 10px;
+`;
+
+export const CommentActionText = styled.Text`
+	margin-right: 5px;
+`;
+
+export const CommentLikePressable = styled.Pressable`
 	margin-right: 10px;
-	color: ${Colors.black};
-	margin: 0 10px;
+`;
+
+type CommentLikeIconProps = {
+	isLiked: boolean;
+};
+
+export const CommentLikeIcon = styled(AntDesign)<CommentLikeIconProps>`
+	font-size: ${Sizes.small};
+	color: ${props => (props.isLiked ? Colors.red : Colors.black)};
 `;

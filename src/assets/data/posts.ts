@@ -17,7 +17,7 @@ const posts: IPost[] = [
 		nofLikes: 34,
 		comments: [
 			{
-				id: 1,
+				id: '1',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -25,7 +25,7 @@ const posts: IPost[] = [
 				},
 			},
 			{
-				id: 2,
+				id: '2',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -55,7 +55,7 @@ const posts: IPost[] = [
 		nofLikes: 34,
 		comments: [
 			{
-				id: 1,
+				id: '1',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -63,7 +63,7 @@ const posts: IPost[] = [
 				},
 			},
 			{
-				id: 2,
+				id: '2',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -89,7 +89,7 @@ const posts: IPost[] = [
 		nofLikes: 34,
 		comments: [
 			{
-				id: 1,
+				id: '1',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -97,7 +97,7 @@ const posts: IPost[] = [
 				},
 			},
 			{
-				id: 2,
+				id: '2',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -122,7 +122,7 @@ const posts: IPost[] = [
 		nofLikes: 34,
 		comments: [
 			{
-				id: 1,
+				id: '1',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -130,7 +130,7 @@ const posts: IPost[] = [
 				},
 			},
 			{
-				id: 2,
+				id: '2',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -155,7 +155,7 @@ const posts: IPost[] = [
 		nofLikes: 34,
 		comments: [
 			{
-				id: 1,
+				id: '1',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',
@@ -163,7 +163,7 @@ const posts: IPost[] = [
 				},
 			},
 			{
-				id: 2,
+				id: '2',
 				comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
 				user: {
 					id: 'u1',

@@ -1,7 +1,7 @@
 import type IUser from './User.d';
 
 interface IComment {
-	id: number;
+	id: string;
 	comment: string;
 	user: IUser;
 }
