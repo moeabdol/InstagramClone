@@ -2,7 +2,7 @@ import type IPost from '../../models/Post.d';
 
 const posts: IPost[] = [
 	{
-		id: 0,
+		id: '0',
 		createdAt: '19 December 2021',
 		image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
 		description:
@@ -35,7 +35,7 @@ const posts: IPost[] = [
 		],
 	},
 	{
-		id: 1,
+		id: '1',
 		createdAt: '19 December 2021',
 		images: [
 			'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
@@ -73,7 +73,7 @@ const posts: IPost[] = [
 		],
 	},
 	{
-		id: 2,
+		id: '2',
 		createdAt: '19 December 2021',
 		video:
 			'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
@@ -107,7 +107,7 @@ const posts: IPost[] = [
 		],
 	},
 	{
-		id: 3,
+		id: '3',
 		createdAt: '19 December 2021',
 		image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/4.jpg',
 		description:
@@ -140,7 +140,7 @@ const posts: IPost[] = [
 		],
 	},
 	{
-		id: 4,
+		id: '4',
 		createdAt: '19 December 2021',
 		image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/4.jpg',
 		description:

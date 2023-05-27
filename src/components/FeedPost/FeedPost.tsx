@@ -35,9 +35,10 @@ import { FlatList, useWindowDimensions } from 'react-native';
 
 type FeedPostProps = {
 	post: IPost;
+	isVisible: boolean;
 };
 
-function FeedPost({ post }: FeedPostProps) {
+function FeedPost({ post, isVisible }: FeedPostProps) {
 	const { width } = useWindowDimensions();
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isLiked, setIsLiked] = useState(false);
@@ -97,6 +98,7 @@ function FeedPost({ post }: FeedPostProps) {
 							resizeMode="cover"
 							repeat
 							muted={isMuted}
+							paused={!isVisible}
 						/>
 					</DoublePressable>
 					<MuteButton onPress={() => setIsMuted(prev => !prev)}>

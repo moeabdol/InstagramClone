@@ -2,7 +2,7 @@ import type IUser from './User.d';
 import type IComment from './Comment.d';
 
 interface IPost {
-	id: number;
+	id: string;
 	createdAt: string;
 	image?: string;
 	images?: string[];
