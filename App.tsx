@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView } from './App.styles';
 // import Home from './src/screens/Home';
 import Comments from './src/screens/Comments';
 
