@@ -1,53 +1,27 @@
 import * as React from 'react';
 import {
-	ContainerView,
-	ProfileHeaderView,
-	ProfileImage,
-	StatView,
-	StatNumberText,
-	StatLabelText,
-	NameText,
-	BioText,
-	ActionsContainer,
-	ButtonSeparator,
+	PostsFlatList,
+	ImageContainer,
+	PostImage,
+	CollectionIcon,
 } from './styles';
 import user from '../../assets/data/user';
-import Button from '../../components/Button';
+import ProfileHeader from './ProfileHeader';
 
 function Profile() {
 	return (
-		<ContainerView>
-			<ProfileHeaderView>
-				<ProfileImage source={{ uri: user.image }} />
-				<StatView>
-					<StatNumberText>99</StatNumberText>
-					<StatLabelText>Posts</StatLabelText>
-				</StatView>
-				<StatView>
-					<StatNumberText>99</StatNumberText>
-					<StatLabelText>Followers</StatLabelText>
-				</StatView>
-				<StatView>
-					<StatNumberText>99</StatNumberText>
-					<StatLabelText>Following</StatLabelText>
-				</StatView>
-			</ProfileHeaderView>
-
-			<NameText>{user.name}</NameText>
-			<BioText>{user.bio}</BioText>
-
-			<ActionsContainer>
-				<Button
-					text="Edit Profile"
-					onPress={() => console.log('on edit profile')}
-				/>
-				<ButtonSeparator />
-				<Button
-					text="Another Action"
-					onPress={() => console.log('on another action')}
-				/>
-			</ActionsContainer>
-		</ContainerView>
+		<PostsFlatList
+			showsVerticalScrollIndicator={false}
+			numColumns={3}
+			data={user.posts}
+			renderItem={({ item }: any) => (
+				<ImageContainer>
+					<PostImage source={{ uri: item.image ?? item.images[0] }} />
+					{item.images && <CollectionIcon name="collections" />}
+				</ImageContainer>
+			)}
+			ListHeaderComponent={ProfileHeader}
+		/>
 	);
 }
 
